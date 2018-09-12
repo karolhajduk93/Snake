@@ -18,8 +18,8 @@ public class Snake {
         // musi poruszac sie z okreslana predkoscia - snake speed
         // ale w jakim kierunku ?? i jak pozostale przetransportowac skoro one ide po kolei
         Point tmp = new Point();
+        direction = Snake_Game.keyPressed;
         //System.out.println(snakeParts.getLast().toString());
-        direction = 1;
 
  // 1-2-3  -> 2-3-4 ||||| 1->2, 2->3, 1->delete, 4->create
         for (int i = 0; i < snakeParts.size() - 1; i++){
@@ -27,16 +27,16 @@ public class Snake {
             snakeParts.get(i).y = snakeParts.get(i+1).y;
         }
 
-        if(direction == 1){ //right
+        if(direction == 1){ // D - right
             snakeParts.getLast().x += snakeSpeed;
         }
-        else if(direction == 2){ //left
+        else if(direction == 2){ // A - left
             snakeParts.getLast().x -= snakeSpeed;
         }
-        else if(direction == 3){ //down
+        else if(direction == 3){ // S - down
             snakeParts.getLast().y += snakeSpeed;
         }
-        else if(direction == 4){ //up
+        else if(direction == 4){ // W - up
             snakeParts.getLast().y -= snakeSpeed;
         }
 
