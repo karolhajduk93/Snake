@@ -14,7 +14,7 @@ public class Draw extends JComponent{
 
         // draw snake
         // change position of snake when key pressed;
-        // enlarge snake when he eats "apple"
+        // augment snake when he eats apple
 
         //draw snake
         //have points of every part of his body (little squares)
@@ -32,7 +32,15 @@ public class Draw extends JComponent{
         //change position of snake when key pressed;
         snake.move();
 
-        //enlarge snake when he eats "apple"
+
+        if(apple.a.x == snake.snakeParts.getLast().x && apple.a.y == snake.snakeParts.getLast().y) {
+            //change position of apple
+            apple.setApple();
+            //augment snake
+            snake.snakeAugment();
+        }
+
+
 
 
     }

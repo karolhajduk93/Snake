@@ -23,6 +23,7 @@ public class Snake_Game extends JFrame{
         Draw draw = new Draw();
         this.add(draw);
 
+        //snake control
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
@@ -44,6 +45,7 @@ public class Snake_Game extends JFrame{
             public void keyReleased(KeyEvent e) {}
         });
 
+        //repainting board
         ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(2);
         executor.scheduleAtFixedRate(new Repaint(this), 0L, 100L, TimeUnit.MILLISECONDS);
 

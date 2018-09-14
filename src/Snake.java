@@ -5,6 +5,7 @@ public class Snake {
     LinkedList<Point> snakeParts; //FIFO
     public int snakeSpeed;
     public int direction;
+    Point tail = new Point();
 
     public Snake(){
         snakeParts = new LinkedList<>();
@@ -18,6 +19,7 @@ public class Snake {
     public void move(){
 
         direction = Snake_Game.keyPressed;
+        tail.setLocation(snakeParts.getFirst());
 
         for (int i = 0; i < snakeParts.size() - 1; i++){
             snakeParts.get(i).x = snakeParts.get(i+1).x;
@@ -36,9 +38,9 @@ public class Snake {
         else if(direction == 4){ // W - up
             snakeParts.getLast().y -= snakeSpeed;
         }
+    }
 
-        for (int i = 0; i < snakeParts.size(); i++){
-            //System.out.println(snakeParts.get(i));
-        }
+    public void snakeAugment(){
+        snakeParts.offerFirst(new Point(tail));
     }
 }
