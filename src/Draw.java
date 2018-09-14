@@ -26,7 +26,9 @@ public class Draw extends JComponent{
         g2.setColor(Color.black);
 
         //change position of snake when key pressed;
-        snake.move();
+        if(Snake_Game.keyPressed != 0) {
+            snake.move();
+        }
 
 
         if(apple.a.x == snake.snakeParts.getLast().x && apple.a.y == snake.snakeParts.getLast().y) {
@@ -37,24 +39,32 @@ public class Draw extends JComponent{
         }
 
         //game over conditions:
+
         //collision with wall
         if((snake.snakeParts.getLast().x > Snake_Game.WIDTH  - 18|| snake.snakeParts.getLast().x < 0 )
                 || (snake.snakeParts.getLast().y > Snake_Game.HEIGHT - 42 || snake.snakeParts.getLast().y < 0)){
             snake.setDefault();
             Snake_Game.keyPressed = 0;
-            System.out.println("Wall");
+            int tryAgain = JOptionPane.showConfirmDialog(null, "Your score: " + Apple.score + "\nTry Again?" , "GAME OVER!",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            Apple.score = 0;
+            if(tryAgain == JOptionPane.NO_OPTION)
+                System.exit(0);
         }
 
         //collision with itself
-
         for(int i = 0; i < snake.snakeParts.size(); i++){
             for(int j = 0; j < snake.snakeParts.size(); j++){
                 if((snake.snakeParts.get(i).x == snake.snakeParts.get(j).x &&
                         snake.snakeParts.get(i).y == snake.snakeParts.get(j).y) &&
                         (j != i)){
                     snake.setDefault();
-                    System.out.println("Itself" + Snake_Game.keyPressed);
                     Snake_Game.keyPressed = 0;
+                    int tryAgain = JOptionPane.showConfirmDialog(null, "Your score: " + Apple.score + "\nTry Again?" , "GAME OVER!",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    Apple.score = 0;
+                    if(tryAgain == JOptionPane.NO_OPTION)
+                        System.exit(0);
 
                 }
             }

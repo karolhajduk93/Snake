@@ -4,11 +4,14 @@ import java.util.Random;
 public class Apple {
     Point a;
     Random random;
+    public static int score;
     public Apple(){
         setApple();
+        score = 0;
     }
 
     public void setApple() {
+        score++;
         random = new Random();
         int rand = random.nextInt((Snake_Game.WIDTH/2) + 1);
         int rest = rand % 6;

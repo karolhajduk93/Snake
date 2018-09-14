@@ -31,19 +31,15 @@ public class Snake {
 
         if(direction == 1){ // D - right
             snakeParts.getLast().x += snakeSpeed;
-            System.out.print("D");
         }
         else if(direction == 2){ // A - left
             snakeParts.getLast().x -= snakeSpeed;
-            System.out.print("A");
         }
         else if(direction == 3){ // S - down
             snakeParts.getLast().y += snakeSpeed;
-            System.out.print("S");
         }
         else if(direction == 4){ // W - up
             snakeParts.getLast().y -= snakeSpeed;
-            System.out.print("W");
         }
     }
 

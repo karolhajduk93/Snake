@@ -31,7 +31,6 @@ public class Snake_Game extends JFrame{
 
             @Override
             public void keyPressed(KeyEvent e) {
-                System.out.println();
                 oneKey++;
                 if (e.getKeyCode() == 68 && keyPressed != 2 && oneKey == 1) { // D - right
                     keyPressed = 1;
@@ -54,7 +53,6 @@ public class Snake_Game extends JFrame{
             @Override
             public void keyReleased(KeyEvent e) {
                 oneKey = 0;
-                System.out.println("|R|");
             }
         });
 
