@@ -43,4 +43,11 @@ public class Snake {
     public void snakeAugment(){
         snakeParts.offerFirst(new Point(tail));
     }
+
+    public void setDefault(){
+        snakeParts.clear();
+        snakeParts.offer(new Point(198, 198));
+        snakeParts.offer(new Point(204, 198));
+        snakeParts.offer(new Point(210, 198));
+    }
 }
