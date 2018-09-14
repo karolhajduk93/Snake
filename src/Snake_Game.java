@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Snake_Game extends JFrame{
 
     public static int keyPressed;
+    public static int WIDTH = 400, HEIGHT = 400;
 
     public static void main(String[] args) {
         new Snake_Game();
@@ -14,7 +15,7 @@ public class Snake_Game extends JFrame{
 
     public Snake_Game(){
         this.setTitle("Snake");
-        this.setSize(400, 400);
+        this.setSize(WIDTH, HEIGHT);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

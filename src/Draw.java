@@ -4,6 +4,7 @@ import java.awt.*;
 public class Draw extends JComponent{
 
     Snake snake = new Snake();
+    Apple apple = new Apple();
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -17,11 +18,21 @@ public class Draw extends JComponent{
 
         //draw snake
         //have points of every part of his body (little squares)
-        for(Point p: snake.snakeParts){ // 2 odstepu by widziec odzielone kwadraty
+        for(Point p: snake.snakeParts){
             g2.fillRect(p.x, p.y, 4, 4);
             g2.drawRect(p.x, p.y, 4, 4);
         }
+
+        //draw apple
+        g2.setColor(Color.red);
+        g2.fillRect(apple.a.x, apple.a.y, 4, 4);
+        g2.drawRect(apple.a.x, apple.a.y, 4, 4);
+        g2.setColor(Color.black);
+
+        //change position of snake when key pressed;
         snake.move();
+
+        //enlarge snake when he eats "apple"
 
 
     }

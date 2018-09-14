@@ -8,20 +8,17 @@ public class Snake {
 
     public Snake(){
         snakeParts = new LinkedList<>();
-        snakeParts.offer(new Point(200, 200));
-        snakeParts.offer(new Point(206, 200));
-        snakeParts.offer(new Point(212, 200));
+        snakeParts.offer(new Point(198, 198));
+        snakeParts.offer(new Point(204, 198));
+        snakeParts.offer(new Point(210, 198));
+
         snakeSpeed = 6;
     }
 
     public void move(){
-        // musi poruszac sie z okreslana predkoscia - snake speed
-        // ale w jakim kierunku ?? i jak pozostale przetransportowac skoro one ide po kolei
-        Point tmp = new Point();
-        direction = Snake_Game.keyPressed;
-        //System.out.println(snakeParts.getLast().toString());
 
- // 1-2-3  -> 2-3-4 ||||| 1->2, 2->3, 1->delete, 4->create
+        direction = Snake_Game.keyPressed;
+
         for (int i = 0; i < snakeParts.size() - 1; i++){
             snakeParts.get(i).x = snakeParts.get(i+1).x;
             snakeParts.get(i).y = snakeParts.get(i+1).y;
@@ -41,7 +38,7 @@ public class Snake {
         }
 
         for (int i = 0; i < snakeParts.size(); i++){
-            System.out.println(snakeParts.get(i));
+            //System.out.println(snakeParts.get(i));
         }
     }
 }
