@@ -42,6 +42,7 @@ public class Draw extends JComponent{
                 || (snake.snakeParts.getLast().y > Snake_Game.HEIGHT - 42 || snake.snakeParts.getLast().y < 0)){
             snake.setDefault();
             Snake_Game.keyPressed = 0;
+            System.out.println("Wall");
         }
 
         //collision with itself
@@ -52,7 +53,9 @@ public class Draw extends JComponent{
                         snake.snakeParts.get(i).y == snake.snakeParts.get(j).y) &&
                         (j != i)){
                     snake.setDefault();
+                    System.out.println("Itself" + Snake_Game.keyPressed);
                     Snake_Game.keyPressed = 0;
+
                 }
             }
         }

@@ -9,9 +9,12 @@ public class Snake {
 
     public Snake(){
         snakeParts = new LinkedList<>();
-        snakeParts.offer(new Point(198, 198));
-        snakeParts.offer(new Point(204, 198));
-        snakeParts.offer(new Point(210, 198));
+        int restWIDTH, restHEIGHT;
+        restWIDTH = Snake_Game.WIDTH/2 % 6;
+        restHEIGHT = Snake_Game.HEIGHT/2 % 6;
+        snakeParts.offer(new Point(Snake_Game.WIDTH/2 - restWIDTH, Snake_Game.WIDTH/2 - restHEIGHT));
+        snakeParts.offer(new Point(Snake_Game.WIDTH/2 - restWIDTH + 6, Snake_Game.WIDTH/2 - restHEIGHT));
+        snakeParts.offer(new Point(Snake_Game.WIDTH/2 - restWIDTH + 12, Snake_Game.WIDTH/2 - restHEIGHT));
 
         snakeSpeed = 6;
     }
@@ -28,15 +31,19 @@ public class Snake {
 
         if(direction == 1){ // D - right
             snakeParts.getLast().x += snakeSpeed;
+            System.out.print("D");
         }
         else if(direction == 2){ // A - left
             snakeParts.getLast().x -= snakeSpeed;
+            System.out.print("A");
         }
         else if(direction == 3){ // S - down
             snakeParts.getLast().y += snakeSpeed;
+            System.out.print("S");
         }
         else if(direction == 4){ // W - up
             snakeParts.getLast().y -= snakeSpeed;
+            System.out.print("W");
         }
     }
 
@@ -46,8 +53,13 @@ public class Snake {
 
     public void setDefault(){
         snakeParts.clear();
-        snakeParts.offer(new Point(198, 198));
-        snakeParts.offer(new Point(204, 198));
-        snakeParts.offer(new Point(210, 198));
+
+        int restWIDTH, restHEIGHT;
+        restWIDTH = Snake_Game.WIDTH/2 % 6;
+        restHEIGHT = Snake_Game.HEIGHT/2 % 6;
+        snakeParts.offer(new Point(Snake_Game.WIDTH/2 - restWIDTH, Snake_Game.WIDTH/2 - restHEIGHT));
+        snakeParts.offer(new Point(Snake_Game.WIDTH/2 - restWIDTH + 6, Snake_Game.WIDTH/2 - restHEIGHT));
+        snakeParts.offer(new Point(Snake_Game.WIDTH/2 - restWIDTH + 12, Snake_Game.WIDTH/2 - restHEIGHT));
+
     }
 }

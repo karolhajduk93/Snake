@@ -7,7 +7,8 @@ import java.util.concurrent.TimeUnit;
 public class Snake_Game extends JFrame{
 
     public static int keyPressed;
-    public static int WIDTH = 400, HEIGHT = 400;
+    public static int WIDTH = 200, HEIGHT = 200;
+    public static int oneKey;
 
     public static void main(String[] args) {
         new Snake_Game();
@@ -30,19 +31,31 @@ public class Snake_Game extends JFrame{
 
             @Override
             public void keyPressed(KeyEvent e) {
-
-                if (e.getKeyCode() == 68 && keyPressed != 2) // D - right
+                System.out.println();
+                oneKey++;
+                if (e.getKeyCode() == 68 && keyPressed != 2 && oneKey == 1) { // D - right
                     keyPressed = 1;
-                else if (e.getKeyCode() == 65 && keyPressed != 1) // A - left
+                    oneKey++;
+                }
+                else if (e.getKeyCode() == 65 && keyPressed != 1 && oneKey == 1) { // A - left
                     keyPressed = 2;
-                else if (e.getKeyCode() == 83 && keyPressed != 4) // S - down
+                    oneKey++;
+                }
+                else if (e.getKeyCode() == 83 && keyPressed != 4 && oneKey == 1) { // S - down
                     keyPressed = 3;
-                else if (e.getKeyCode() == 87 && keyPressed != 3) // W - up
+                    oneKey++;
+                }
+                else if (e.getKeyCode() == 87 && keyPressed != 3 && oneKey == 1) { // W - up
                     keyPressed = 4;
+                    oneKey++;
+                }
             }
 
             @Override
-            public void keyReleased(KeyEvent e) {}
+            public void keyReleased(KeyEvent e) {
+                oneKey = 0;
+                System.out.println("|R|");
+            }
         });
 
         //repainting board
